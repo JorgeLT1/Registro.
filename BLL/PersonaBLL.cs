@@ -50,20 +50,14 @@ public class PersonaBLL
         .SingleOrDefault();
     }
 
-    public List<Persona> GetList(Expression<Func<Persona, bool>> Criterio)
-    {
-        return _contexto.Persona
-        .AsNoTracking()
-        .Where(Criterio)
-        .ToList();
-    }
 
-        public List<Ocupaciones> GetOcupaciones(Expression<Func<Ocupaciones, bool>> Criterio)
+      public List<Persona> GetList()
     {
-        return _contexto.Ocupaciones
-        .AsNoTracking()
-        .Where(Criterio)
-        .ToList();
+        return _contexto.Persona.ToList();
+    }
+      public List<Ocupaciones> GetLists()
+    {
+        return _contexto.Ocupaciones.ToList();
     }
 
 }

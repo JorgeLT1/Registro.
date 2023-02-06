@@ -1,0 +1,42 @@
+@page "/C_persona"
+@inject PersonaBLL persona;
+
+<EditForm Model="persona">
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta de Ocupaciones</h3>
+        </div>
+        </div>
+
+        <table class="table table-secondary">
+            <thead class="thead-dark">
+                <tr class="table-info">
+                    <th>PersonaID</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Email</th>
+                    <th>Nacimiento</th>
+                    <th>Balance</th>
+                    <th>Ocupaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in persona.GetList())
+                {
+                    <tr>
+                        <td>@item.PersonaId</td>
+                        <td>@item.Nombres</td>
+                        <td>@item.direccion</td>
+                        <td>@item.email</td>
+                        <td>@item.nacimiento</td>
+                        <td>@item.balance</td>
+                        <td>@item.ocupacionId</td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+</EditForm>
+
+
+

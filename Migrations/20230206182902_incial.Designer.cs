@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionPrestamosPersonales2023.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230206024621_Inicial")]
-    partial class Inicial
+    [Migration("20230206182902_incial")]
+    partial class incial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,8 +86,8 @@ namespace GestionPrestamosPersonales2023.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double?>("monto")
-                        .HasColumnType("REAL");
+                    b.Property<long?>("monto")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("personaid")
                         .HasColumnType("INTEGER");

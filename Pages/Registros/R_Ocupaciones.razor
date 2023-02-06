@@ -48,7 +48,7 @@
     } 
     private void Buscar()
     {
-        if (ocupacion.OcupacionId > 0)
+        if (ocupacion.OcupacionId > 0 )
         {
             var encontrado = ocupacionesBLL.Buscar(ocupacion.OcupacionId);
             Nuevo();
@@ -61,15 +61,6 @@
     {
         this.ocupacion = new Ocupaciones();
     }
-
-    /*public bool validar()
-    {
-        if(ocupacion.Descripcion)
-        
-        
-        
-    }*/
-
 
     public void Guardar()
     {

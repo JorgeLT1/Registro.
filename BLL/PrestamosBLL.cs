@@ -54,6 +54,13 @@ public class PrestamosBLL
     {
         return _contexto.Prestamos.ToList();
     }
-    
+          public List<Persona> GetLists()
+    {
+        return _contexto.Persona.ToList();
+    }
+      public List<Ocupaciones> GetListss()
+    {
+        return _contexto.Ocupaciones.ToList();
+    }
 
 }

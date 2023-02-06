@@ -1,6 +1,7 @@
 @page "/LoginPersona"
 @page "/persona/{PersonaId:int}"
 @inject PersonaBLL personaBLL
+@inject OcupacionesBLL ocupacion
 
 <EditForm Model="persona">
 <div class="accordion-item">
@@ -42,17 +43,15 @@
       <InputNumber @bind-Value="persona.balance" class="form-control" />
       <br />
       <br />
-         <label>Ocupacion</label>
-            <InputSelect class="form-select text-14" @bind-Value="persona.ocupacionId">
-                <option value="null"> </option>
-                @foreach (var item in _ocupaciones)
-                {
 
-                    <option value="@item.OcupacionId">@item.Descripcion</option>
-
-                }
-            </InputSelect>
-            <ValidationMessage For="@(() =>persona.ocupacionId)" />
+      <label for="persona.ocupacionId">Ocupacion</label>
+      <select @bind="persona.ocupacionId" class="form-control">
+        @foreach (var item in ocupacion.GetList())
+        {
+            <option value="@item.OcupacionId"></option>
+            <option value="@item.OcupacionId">@item.Descripcion</option>
+        }
+      </select>
 
       <br />
       <br />
@@ -69,11 +68,8 @@
 @code {
     [Parameter]
     public int PersonaId {get; set; }
-    public int OcupacionId{get; set;}
-
-    public Ocupaciones ocupaciones {get; set;} = new Ocupaciones();
     public Persona persona {get; set; } = new Persona();
-    public List<Ocupaciones> _ocupaciones {get; set;} = new List<Ocupaciones>();
+
 
     protected override void OnInitialized()
     {
@@ -112,7 +108,6 @@
         }
 
     }
-
 
     public void Eliminar()
     {

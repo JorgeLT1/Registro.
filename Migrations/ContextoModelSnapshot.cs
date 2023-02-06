@@ -83,8 +83,8 @@ namespace GestionPrestamosPersonales2023.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double?>("monto")
-                        .HasColumnType("REAL");
+                    b.Property<long?>("monto")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("personaid")
                         .HasColumnType("INTEGER");

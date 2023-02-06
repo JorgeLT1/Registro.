@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in _ocupaciones)
+                @foreach (var item in ocupacion.GetList())
                 {
                     <tr>
                         <td>@item.OcupacionId</td>
@@ -25,20 +25,12 @@
                         <td>@item.salario</td>
                     </tr>
                 }
+                
             </tbody>
         </table>
 </EditForm>
 
-@code
-{
-    public Ocupaciones ocupaciones{get; set;} = new Ocupaciones();
-    public List<Ocupaciones> _ocupaciones{get;set;} = new List<Ocupaciones>();
 
-    public void buscar()
-    {
-        _ocupaciones = ocupacion.GetList(o => true);
-    }
-}
 
 
 

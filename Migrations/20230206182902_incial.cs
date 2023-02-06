@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GestionPrestamosPersonales2023.Migrations
 {
     /// <inheritdoc />
-    public partial class Inicial : Migration
+    public partial class incial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,7 +53,7 @@ namespace GestionPrestamosPersonales2023.Migrations
                     fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     vence = table.Column<DateTime>(type: "TEXT", nullable: true),
                     concepto = table.Column<string>(type: "TEXT", nullable: true),
-                    monto = table.Column<double>(type: "REAL", nullable: true),
+                    monto = table.Column<long>(type: "INTEGER", nullable: true),
                     personaid = table.Column<int>(type: "INTEGER", nullable: true),
                     balance = table.Column<int>(type: "INTEGER", nullable: true)
                 },

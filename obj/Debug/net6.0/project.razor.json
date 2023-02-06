@@ -183,6 +183,65 @@
         }
       },
       {
+        "HashCode": -1367345844,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Persona",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "R_Persona"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "PersonaId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "PersonaId",
+              "Common.GloballyQualifiedTypeName": "global::System.Int32"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Persona",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
+          "Common.TypeNameIdentifier": "R_Persona"
+        }
+      },
+      {
+        "HashCode": -453796242,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Persona",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GestionPrestamosPersonales2023.Pages.Registros.R_Persona"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "PersonaId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "PersonaId",
+              "Common.GloballyQualifiedTypeName": "global::System.Int32"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Persona",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
+          "Common.TypeNameIdentifier": "R_Persona",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -1735363062,
         "Kind": "Components.Component",
         "Name": "GestionPrestamosPersonales2023.Pages.Consultas.C_Ocupaciones",
@@ -18842,6 +18901,11 @@
     {
       "FilePath": "c:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\Pages\\Index.razor",
       "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\Pages\\Registros\\R_Persona.razor",
+      "TargetPath": "Pages\\Registros\\R_Persona.razor",
       "FileKind": "component"
     },
     {

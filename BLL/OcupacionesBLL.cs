@@ -50,9 +50,12 @@ public class OcupacionesBLL
         .SingleOrDefault();
     }
 
-    public List<Ocupaciones> GetList()
+    public List<Ocupaciones> GetList(Expression<Func<Ocupaciones, bool>> Criterio)
     {
-        return _contexto.Ocupaciones.ToList();
+        return _contexto.Ocupaciones
+        .AsNoTracking()
+        .Where(Criterio)
+        .ToList();
     }
     
 

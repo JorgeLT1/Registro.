@@ -1,0 +1,125 @@
+@page "/LoginPersona"
+@page "/persona/{PersonaId:int}"
+@inject PersonaBLL personaBLL
+
+<EditForm Model="persona">
+<div class="accordion-item">
+    <div class="modal-header">
+        <h1>Registro de Persona</h1>
+    </div>
+ <div class="accordion-body">     
+      <label for="persona">PersonaID</label>
+    <InputNumber @bind-Value="persona.PersonaId" class="form-control" />
+    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
+      <br />
+      <br />
+      <label for="nombre">Nombre</label>
+      <InputText @bind-Value="persona.Nombres" class="form-control" />
+      <br />
+      <br />
+    
+      <label for="direccion">Direccion</label>
+      <InputText @bind-Value="persona.direccion" class="form-control" />
+      <br />
+      <br />
+
+     <label for="Emil">Email</label>
+      <InputText @bind-Value="persona.email" class="form-control" />
+      <br />
+      <br />
+
+      <label for="nacimiento">Nacimiento</label>
+      <InputDate @bind-Value="persona.nacimiento" class="form-control" />
+      <br />
+      <br />
+
+      <label for="telefono">telefono</label>
+      <InputText @bind-Value="persona.telefono" class="form-control" />
+      <br />
+      <br />
+
+      <label for="balance">Balance</label>
+      <InputNumber @bind-Value="persona.balance" class="form-control" />
+      <br />
+      <br />
+         <label>Ocupacion</label>
+            <InputSelect class="form-select text-14" @bind-Value="persona.ocupacionId">
+                <option value="null"> </option>
+                @foreach (var item in _ocupaciones)
+                {
+
+                    <option value="@item.OcupacionId">@item.Descripcion</option>
+
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() =>persona.ocupacionId)" />
+
+      <br />
+      <br />
+   </div>
+
+    <div class="accordion-flush">
+        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
+        <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
+    </div>
+</div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int PersonaId {get; set; }
+    public int OcupacionId{get; set;}
+
+    public Ocupaciones ocupaciones {get; set;} = new Ocupaciones();
+    public Persona persona {get; set; } = new Persona();
+    public List<Ocupaciones> _ocupaciones {get; set;} = new List<Ocupaciones>();
+
+    protected override void OnInitialized()
+    {
+        if(PersonaId > 0)
+        {
+            this.persona.PersonaId = PersonaId;
+            this.Buscar();
+        }
+    } 
+    public void Buscar()
+    {
+        if (persona.PersonaId > 0)
+        {
+            var encontrado = personaBLL.Buscar(persona.PersonaId);
+            Nuevo();
+            if (encontrado != null)
+                this.persona = encontrado;
+        }
+    }
+
+    public void Nuevo()
+    {
+        this.persona = new Persona();
+    }
+
+    public void Guardar()
+    {
+        var guardado = personaBLL.Guardar(persona);
+
+        if (guardado)
+        {
+            Nuevo();
+        }
+        else
+        {
+        }
+
+    }
+
+
+    public void Eliminar()
+    {
+        if(personaBLL.Eliminar(persona))
+        {
+            Nuevo();
+        }
+    }
+
+}

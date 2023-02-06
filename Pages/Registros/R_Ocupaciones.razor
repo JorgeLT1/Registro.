@@ -1,0 +1,97 @@
+@page "/ocupacion"
+@page "/ocupacion/{OcupacionId:int}"
+@inject OcupacionesBLL ocupacionesBLL
+
+<EditForm Model="ocupacion">
+<div class="accordion-item">
+    <div class="modal-header">
+        <h1>Registro de Ocupaciones</h1>
+    </div>
+ <div class="accordion-body">     
+      <label for="ocupac">OcupaciobId</label>
+    <InputNumber @bind-Value="ocupacion.OcupacionId" class="form-control" />
+    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
+      <br />
+      <br />
+      <label for="descr">Descripcion</label>
+      <InputText @bind-Value="ocupacion.Descripcion" class="form-control" />
+      <br />
+      <br />
+    
+      <label for="descr">Salario</label>
+      <InputNumber @bind-Value="ocupacion.salario" class="form-control" />
+      <br />
+      <br />
+   </div>
+
+    <div class="accordion-flush">
+        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
+        <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
+    </div>
+</div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int OcupacionId {get; set; }
+
+    public Ocupaciones ocupacion {get; set; } = new Ocupaciones();
+
+    protected override void OnInitialized()
+    {
+        if(OcupacionId > 0)
+        {
+            this.ocupacion.OcupacionId = OcupacionId;
+            this.Buscar();
+        }
+    } 
+    private void Buscar()
+    {
+        if (ocupacion.OcupacionId > 0)
+        {
+            var encontrado = ocupacionesBLL.Buscar(ocupacion.OcupacionId);
+            Nuevo();
+            if (encontrado != null)
+                this.ocupacion = encontrado;
+        }
+    }
+
+    public void Nuevo()
+    {
+        this.ocupacion = new Ocupaciones();
+    }
+
+    /*public bool validar()
+    {
+        if(ocupacion.Descripcion)
+        
+        
+        
+    }*/
+
+
+    public void Guardar()
+    {
+        var guardado = ocupacionesBLL.Guardar(ocupacion);
+
+        if (guardado)
+        {
+            Nuevo();
+        }
+        else
+        {
+        }
+
+    }
+
+
+    public void Eliminar()
+    {
+        if(ocupacionesBLL.Eliminar(ocupacion))
+        {
+            Nuevo();
+        }
+    }
+
+}

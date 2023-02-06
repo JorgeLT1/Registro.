@@ -15,6 +15,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<OcupacionesBLL>();
 builder.Services.AddScoped<PersonaBLL>();
 builder.Services.AddScoped<PrestamosBLL>();
+builder.Services.AddScoped<PagosBLL>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

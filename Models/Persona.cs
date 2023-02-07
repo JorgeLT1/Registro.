@@ -1,4 +1,3 @@
-
 using System.ComponentModel.DataAnnotations;
 
 public class Persona
@@ -16,7 +15,6 @@ public class Persona
     public DateTime? nacimiento{get; set;}
     public string? telefono{get;set;}
     public double? balance{get;set;}
-
     public int? ocupacionId{get;set;}
     
 }

@@ -1,0 +1,101 @@
+@page "/pagos"
+@page "/pagos/{PagosId:int}"
+@inject PagosBLL pagosBLL
+@inject PersonaBLL personaBLL
+@inject OcupacionesBLL ocupacion
+
+<EditForm Model="pagosBLL">
+<div class="accordion-item">
+    <div class="modal-header">
+        <h1>Registro de Pagos</h1>
+    </div>
+ <div class="accordion-body">     
+      <label for="Pagos">PagosId</label>
+    <InputNumber @bind-Value="pagos.PagosId" class="form-control" />
+    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
+      <br />
+      <br />
+      <label for="fecha">Fecha</label>
+      <InputDate @bind-Value="pagos.Fecha" class="form-control" />
+      <br />
+      <br />
+    
+      <label for="pagos.personaid">Persona ID</label>
+      <select @bind="pagos.PersonaId" class="form-control">
+        @foreach (var item in personaBLL.GetList())
+        {
+            <option value="@item.PersonaId">@item.PersonaId</option>
+        }
+      </select>
+
+      <label for="concepto">Concepto</label>
+      <InputText @bind-Value="pagos.Concepto" class="form-control" />
+      <br />
+      <br />
+
+      <label for="monto">Monto</label>
+      <InputNumber @bind-Value="pagos.Monto" class="form-control" />
+      <br />
+      <br />
+   </div>
+
+    <div class="accordion-flush">
+        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
+        <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
+    </div>
+</div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int PagosId {get; set; }
+    public Pagos pagos {get; set; } = new Pagos();
+
+    protected override void OnInitialized()
+    {
+        if(PagosId > 0)
+        {
+            this.pagos.PagosId = PagosId;
+            this.Buscar();
+        }
+    } 
+    public void Buscar()
+    {
+        if (pagos.PagosId > 0)
+        {
+            var encontrado = pagosBLL.Buscar(pagos.PagosId);
+            Nuevo();
+            if (encontrado != null)
+                this.pagos = encontrado;
+        }
+    }
+
+    public void Nuevo()
+    {
+        this.pagos = new Pagos();
+    }
+
+    public void Guardar()
+    {
+        var guardado = pagosBLL.Guardar(pagos);
+        
+        if (guardado)
+        {
+            Nuevo();
+        }
+        else
+        {
+        }
+
+    }
+
+    public void Eliminar()
+    {
+        if(pagosBLL.Eliminar(pagos))
+        {
+            Nuevo();
+        }
+    }
+
+}

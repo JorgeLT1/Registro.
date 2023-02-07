@@ -198,6 +198,43 @@
         }
       },
       {
+        "HashCode": -1911681382,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Consultas.C_Pagos",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "C_Pagos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Consultas.C_Pagos",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Consultas",
+          "Common.TypeNameIdentifier": "C_Pagos"
+        }
+      },
+      {
+        "HashCode": 1291224436,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Consultas.C_Pagos",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GestionPrestamosPersonales2023.Pages.Consultas.C_Pagos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Consultas.C_Pagos",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Consultas",
+          "Common.TypeNameIdentifier": "C_Pagos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 1887664772,
         "Kind": "Components.Component",
         "Name": "GestionPrestamosPersonales2023.Pages.Consultas.C_Ocupaciones",
@@ -231,65 +268,6 @@
           "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Consultas.C_Ocupaciones",
           "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Consultas",
           "Common.TypeNameIdentifier": "C_Ocupaciones",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 389169673,
-        "Kind": "Components.Component",
-        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
-        "AssemblyName": "GestionPrestamosPersonales2023",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "R_Ocupaciones"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "OcupacionId",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "OcupacionId",
-              "Common.GloballyQualifiedTypeName": "global::System.Int32"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
-          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
-          "Common.TypeNameIdentifier": "R_Ocupaciones"
-        }
-      },
-      {
-        "HashCode": -1631496054,
-        "Kind": "Components.Component",
-        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
-        "AssemblyName": "GestionPrestamosPersonales2023",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "OcupacionId",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "OcupacionId",
-              "Common.GloballyQualifiedTypeName": "global::System.Int32"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
-          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
-          "Common.TypeNameIdentifier": "R_Ocupaciones",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -408,6 +386,124 @@
           "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Prestamos",
           "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
           "Common.TypeNameIdentifier": "R_Prestamos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 389169673,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "R_Ocupaciones"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "OcupacionId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "OcupacionId",
+              "Common.GloballyQualifiedTypeName": "global::System.Int32"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
+          "Common.TypeNameIdentifier": "R_Ocupaciones"
+        }
+      },
+      {
+        "HashCode": -1631496054,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "OcupacionId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "OcupacionId",
+              "Common.GloballyQualifiedTypeName": "global::System.Int32"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Ocupaciones",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
+          "Common.TypeNameIdentifier": "R_Ocupaciones",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 528410622,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Pagos",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "R_Pagos"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "PagosId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "PagosId",
+              "Common.GloballyQualifiedTypeName": "global::System.Int32"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Pagos",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
+          "Common.TypeNameIdentifier": "R_Pagos"
+        }
+      },
+      {
+        "HashCode": 2006906481,
+        "Kind": "Components.Component",
+        "Name": "GestionPrestamosPersonales2023.Pages.Registros.R_Pagos",
+        "AssemblyName": "GestionPrestamosPersonales2023",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GestionPrestamosPersonales2023.Pages.Registros.R_Pagos"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "PagosId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "PagosId",
+              "Common.GloballyQualifiedTypeName": "global::System.Int32"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "GestionPrestamosPersonales2023.Pages.Registros.R_Pagos",
+          "Common.TypeNamespace": "GestionPrestamosPersonales2023.Pages.Registros",
+          "Common.TypeNameIdentifier": "R_Pagos",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -19037,6 +19133,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\Pages\\Registros\\R_Pagos.razor",
+      "TargetPath": "Pages\\Registros\\R_Pagos.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\Pages\\FetchData.razor",
       "TargetPath": "Pages\\FetchData.razor",
       "FileKind": "component"
@@ -19049,6 +19150,11 @@
     {
       "FilePath": "c:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\Pages\\Counter.razor",
       "TargetPath": "Pages\\Counter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\Pages\\Consultas\\C_Pagos.razor",
+      "TargetPath": "Pages\\Consultas\\C_Pagos.razor",
       "FileKind": "component"
     },
     {

@@ -8,77 +8,85 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GestionPrestamosPersonales2023
 build_property.RootNamespace = GestionPrestamosPersonales2023
-build_property.ProjectDir = C:\Users\Jorge\Documents\7 trimestre\PROGRAMACION APLICADA I\GestionPrestamosPersonales2023\
+build_property.ProjectDir = c:\Users\Jorge\Documents\7 trimestre\PROGRAMACION APLICADA I\GestionPrestamosPersonales2023\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Jorge\Documents\7 trimestre\PROGRAMACION APLICADA I\GestionPrestamosPersonales2023
+build_property.MSBuildProjectDirectory = c:\Users\Jorge\Documents\7 trimestre\PROGRAMACION APLICADA I\GestionPrestamosPersonales2023
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/App.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Ocupaciones.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Ocupaciones.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfT2N1cGFjaW9uZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Persona.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Pagos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUGFnb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Persona.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUGVyc29uYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Prestamos.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Prestamos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUHJlc3RhbW9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Counter.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/FetchData.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Index.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Ocupaciones.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Ocupaciones.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfT2N1cGFjaW9uZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Persona.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Pagos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUGFnb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Persona.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUGVyc29uYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Prestamos.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Prestamos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUHJlc3RhbW9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Shared/SurveyPrompt.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/_Imports.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Shared/MainLayout.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ws39i83xoh
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Shared/NavMenu.razor]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-8cxc4lb0in
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Error.cshtml]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/_Host.cshtml]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/_Layout.cshtml]
+[c:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

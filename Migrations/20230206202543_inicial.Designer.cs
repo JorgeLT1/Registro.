@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionPrestamosPersonales2023.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230206182902_incial")]
-    partial class incial
+    [Migration("20230206202543_inicial")]
+    partial class inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,51 @@ namespace GestionPrestamosPersonales2023.Migrations
                     b.HasKey("OcupacionId");
 
                     b.ToTable("Ocupaciones");
+                });
+
+            modelBuilder.Entity("Pagos", b =>
+                {
+                    b.Property<int>("PagosId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Concepto")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("Fecha")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("Monto")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PersonaId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PagosId");
+
+                    b.ToTable("Pagos");
+                });
+
+            modelBuilder.Entity("PagosDetalle", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("PagoId")
+                        .IsRequired()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("prestamosid")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double?>("valorPagado")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("id");
+
+                    b.ToTable("PagosDetalle");
                 });
 
             modelBuilder.Entity("Persona", b =>

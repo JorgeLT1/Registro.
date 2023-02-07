@@ -63,5 +63,9 @@ public class PagosBLL
     {
         return _contexto.Pagos.ToList();
     }
+        public List<Prestamos> PrestamosList()
+    {
+        return _contexto.Prestamos.ToList();
+    }
 
 }

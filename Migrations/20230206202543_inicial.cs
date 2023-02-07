@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GestionPrestamosPersonales2023.Migrations
 {
     /// <inheritdoc />
-    public partial class incial : Migration
+    public partial class inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,37 @@ namespace GestionPrestamosPersonales2023.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ocupaciones", x => x.OcupacionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pagos",
+                columns: table => new
+                {
+                    PagosId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    PersonaId = table.Column<string>(type: "TEXT", nullable: true),
+                    Concepto = table.Column<string>(type: "TEXT", nullable: true),
+                    Monto = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pagos", x => x.PagosId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PagosDetalle",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PagoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    prestamosid = table.Column<int>(type: "INTEGER", nullable: true),
+                    valorPagado = table.Column<double>(type: "REAL", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PagosDetalle", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,6 +99,12 @@ namespace GestionPrestamosPersonales2023.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Ocupaciones");
+
+            migrationBuilder.DropTable(
+                name: "Pagos");
+
+            migrationBuilder.DropTable(
+                name: "PagosDetalle");
 
             migrationBuilder.DropTable(
                 name: "Persona");

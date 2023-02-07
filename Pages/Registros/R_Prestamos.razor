@@ -8,55 +8,40 @@
     <div class="modal-header">
         <h1>Registro Prestamos</h1>
     </div>
- <div class="accordion-body">     
-    <label for="prestamos">PrestamosId</label>
-    <InputNumber @bind-Value="prestamos.PrestamosId" class="form-control" />
-    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
-
-      <br />
-      <br />
-
-      <label for="Fecha">Fecha</label>
-      <InputDate @bind-Value="prestamos.fecha" class="form-control" />
-      <br />
-      <br />
-
-      <label for="Vence">vence</label>
-      <InputDate @bind-Value="prestamos.vence" class="form-control" />
-      <br />
-      <br />
-
-      <label for="prestamos.personaid">Persona ID</label>
-      <select @bind="prestamos.personaid" class="form-control">
-        @foreach (var item in personaBLL.GetList())
-        {
-            <option value="@item.PersonaId">@item.PersonaId</option>
-        }
-      </select>
-
-      <br />
-      <br />
-
-      <label for="Concepto">Concepto</label>
-      <InputText @bind-Value="prestamos.concepto" class="form-control" />
-      <br />
-      <br />
-
-      <label for="Monto">Monto</label>
-      <InputNumber @bind-Value="prestamos.monto" class="form-control" />
-      <br />
-      <br />
-
-      <label for="Balance">Balance</label>
-      <InputNumber @bind-Value="prestamos.balance" class="form-control" />
-      <br />
-      <br />
-
-   </div>
-
+    <div class="accordion-body">
+        <label for="prestamos">PrestamosId</label>
+        <InputNumber @bind-Value="prestamos.PrestamosId" class="form-control" />
+        <button type="button" class="btn btn-primary" @onclick="Buscar"> Buscar </button>
+        <br />
+        <br />
+        <label for="Fecha">Fecha</label>
+        <InputDate @bind-Value="prestamos.fecha" class="form-control" />
+        <br />
+        <br />
+        <label for="Vence">vence</label>
+        <InputDate @bind-Value="prestamos.vence" class="form-control" />
+        <br />
+        <br />
+        <label for="prestamos.personaid">Persona ID</label>
+        <select @bind="prestamos.personaid" class="form-control"> @foreach (var item in personaBLL.GetList()) { <option value="@item.PersonaId">@item.PersonaId</option> } </select>
+        <br />
+        <br />
+        <label for="Concepto">Concepto</label>
+        <InputText @bind-Value="prestamos.concepto" class="form-control" />
+        <br />
+        <br />
+        <label for="Monto">Monto</label>
+        <InputNumber @bind-Value="prestamos.monto" class="form-control" />
+        <br />
+        <br />
+        <label for="Balance">Balance</label>
+        <InputNumber @bind-Value="prestamos.balance" class="form-control" />
+        <br />
+        <br />
+    </div>
     <div class="accordion-flush">
-        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
-        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
+        <button type="button" class="btn btn-primary" @onclick="Nuevo"> Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar"> Guardar</button>
         <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
     </div>
 </div>

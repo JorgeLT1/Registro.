@@ -7,26 +7,24 @@
     <div class="modal-header">
         <h1>Registro de Ocupaciones</h1>
     </div>
- <div class="accordion-body">     
-      <label for="ocupac">OcupaciobId</label>
-    <InputNumber @bind-Value="ocupacion.OcupacionId" class="form-control" />
-    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
-      <br />
-      <br />
-      <label for="descr">Descripcion</label>
-      <InputText @bind-Value="ocupacion.Descripcion" class="form-control" />
-      <br />
-      <br />
-    
-      <label for="descr">Salario</label>
-      <InputNumber @bind-Value="ocupacion.salario" class="form-control" />
-      <br />
-      <br />
-   </div>
-
+    <div class="accordion-body">
+        <label for="ocupac">OcupaciobId</label>
+        <InputNumber @bind-Value="ocupacion.OcupacionId" class="form-control" />
+        <button type="button" class="btn btn-primary" @onclick="Buscar"> Buscar </button>
+        <br />
+        <br />
+        <label for="descr">Descripcion</label>
+        <InputText @bind-Value="ocupacion.Descripcion" class="form-control" />
+        <br />
+        <br />
+        <label for="descr">Salario</label>
+        <InputNumber @bind-Value="ocupacion.salario" class="form-control" />
+        <br />
+        <br />
+    </div>
     <div class="accordion-flush">
-        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
-        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
+        <button type="button" class="btn btn-primary" @onclick="Nuevo"> Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar"> Guardar</button>
         <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
     </div>
 </div>

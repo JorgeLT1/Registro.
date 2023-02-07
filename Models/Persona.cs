@@ -6,7 +6,6 @@ public class Persona
     [Key]
 
     public int PersonaId {get; set;}
-    
 
     [Required (ErrorMessage ="La descripción es requerida")]
 

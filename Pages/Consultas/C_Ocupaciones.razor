@@ -6,28 +6,21 @@
         <div class="card-header">
             <h3>Consulta de Ocupaciones</h3>
         </div>
-        </div>
-
-        <table class="table table-secondary">
-            <thead class="thead-dark">
-                <tr class="table-info">
-                    <th>OcupacionId</th>
-                    <th>Descripcion</th>
-                    <th>Salario</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in ocupacion.GetList())
-                {
-                    <tr>
-                        <td>@item.OcupacionId</td>
-                        <td>@item.Descripcion</td>
-                        <td>@item.salario</td>
-                    </tr>
-                }
-                
-            </tbody>
-        </table>
+    </div>
+    <table class="table table-secondary">
+        <thead class="thead-dark">
+            <tr class="table-info">
+                <th>OcupacionId</th>
+                <th>Descripcion</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody> @foreach (var item in ocupacion.GetList()) { <tr>
+                <td>@item.OcupacionId</td>
+                <td>@item.Descripcion</td>
+                <td>@item.salario</td>
+            </tr> } </tbody>
+    </table>
 </EditForm>
 
 

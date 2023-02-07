@@ -6,9 +6,7 @@ public class Ocupaciones
 
     public int OcupacionId {get; set;}
     
-
     [Required (ErrorMessage ="La descripción es requerida")]
-
     public string? Descripcion {get; set;}
     public double? salario {set; get;}
 

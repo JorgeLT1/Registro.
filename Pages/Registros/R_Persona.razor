@@ -8,58 +8,46 @@
     <div class="modal-header">
         <h1>Registro de Persona</h1>
     </div>
- <div class="accordion-body">     
-      <label for="persona">PersonaID</label>
-    <InputNumber @bind-Value="persona.PersonaId" class="form-control" />
-    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
-      <br />
-      <br />
-      <label for="nombre">Nombre</label>
-      <InputText @bind-Value="persona.Nombres" class="form-control" />
-      <br />
-      <br />
-    
-      <label for="direccion">Direccion</label>
-      <InputText @bind-Value="persona.direccion" class="form-control" />
-      <br />
-      <br />
-
-     <label for="Emil">Email</label>
-      <InputText @bind-Value="persona.email" class="form-control" />
-      <br />
-      <br />
-
-      <label for="nacimiento">Nacimiento</label>
-      <InputDate @bind-Value="persona.nacimiento" class="form-control" />
-      <br />
-      <br />
-
-      <label for="telefono">telefono</label>
-      <InputText @bind-Value="persona.telefono" class="form-control" />
-      <br />
-      <br />
-
-      <label for="balance">Balance</label>
-      <InputNumber @bind-Value="persona.balance" class="form-control" />
-      <br />
-      <br />
-
-      <label for="persona.ocupacionId">Ocupacion</label>
-      <select @bind="persona.ocupacionId" class="form-control">
-        @foreach (var item in ocupacion.GetList())
-        {
-            <option value="@item.OcupacionId"></option>
-            <option value="@item.OcupacionId">@item.Descripcion</option>
-        }
-      </select>
-
-      <br />
-      <br />
-   </div>
-
+    <div class="accordion-body">
+        <label for="persona">PersonaID</label>
+        <InputNumber @bind-Value="persona.PersonaId" class="form-control" />
+        <button type="button" class="btn btn-primary" @onclick="Buscar"> Buscar </button>
+        <br />
+        <br />
+        <label for="nombre">Nombre</label>
+        <InputText @bind-Value="persona.Nombres" class="form-control" />
+        <br />
+        <br />
+        <label for="direccion">Direccion</label>
+        <InputText @bind-Value="persona.direccion" class="form-control" />
+        <br />
+        <br />
+        <label for="Emil">Email</label>
+        <InputText @bind-Value="persona.email" class="form-control" />
+        <br />
+        <br />
+        <label for="nacimiento">Nacimiento</label>
+        <InputDate @bind-Value="persona.nacimiento" class="form-control" />
+        <br />
+        <br />
+        <label for="telefono">telefono</label>
+        <InputText @bind-Value="persona.telefono" class="form-control" />
+        <br />
+        <br />
+        <label for="balance">Balance</label>
+        <InputNumber @bind-Value="persona.balance" class="form-control" />
+        <br />
+        <br />
+        <label for="persona.ocupacionId">Ocupacion</label>
+        <select @bind="persona.ocupacionId" class="form-control"> @foreach (var item in ocupacion.GetList()) { <option value="@item.OcupacionId"></option>
+            <option value="@item.OcupacionId">@item.Descripcion</option> }
+        </select>
+        <br />
+        <br />
+    </div>
     <div class="accordion-flush">
-        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
-        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
+        <button type="button" class="btn btn-primary" @onclick="Nuevo"> Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar"> Guardar</button>
         <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
     </div>
 </div>

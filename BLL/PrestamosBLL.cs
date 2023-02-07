@@ -1,65 +1,54 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
-public class PrestamosBLL
-{
+public class PrestamosBLL {
     private Contexto _contexto;
 
-    public PrestamosBLL(Contexto contexto)
-    {
+    public PrestamosBLL(Contexto contexto) {
         _contexto = contexto;
     }
 
-    public bool Existe(int prestamosId)
-    {
+    public bool Existe(int prestamosId) {
         return _contexto.Prestamos.Any(o => o.PrestamosId == prestamosId);
     }
 
-    private bool Insertar(Prestamos prestamos)
-    {
+    private bool Insertar(Prestamos prestamos) {
         _contexto.Prestamos.Add(prestamos);
         return _contexto.SaveChanges() > 0;
     }
 
-    private bool Modificar(Prestamos prestamos)
-    {
+    private bool Modificar(Prestamos prestamos) {
         _contexto.Entry(prestamos).State = EntityState.Modified;
         return _contexto.SaveChanges() > 0;
     }
 
-    public bool Guardar(Prestamos prestamos)
-    {
-        if(!Existe(prestamos.PrestamosId))
+    public bool Guardar(Prestamos prestamos) {
+        if (!Existe(prestamos.PrestamosId))
             return this.Insertar(prestamos);
         else
-            return this.Modificar(prestamos);   
-    
+            return this.Modificar(prestamos);
+
     }
 
-    public bool Eliminar (Prestamos prestamos)
-    {
+    public bool Eliminar(Prestamos prestamos) {
         _contexto.Entry(prestamos).State = EntityState.Deleted;
         return _contexto.SaveChanges() > 0;
     }
 
-    public Prestamos? Buscar(int prestamosid)
-    {
+    public Prestamos ? Buscar(int prestamosid) {
         return _contexto.Prestamos
-        .Where(o => o.PrestamosId == prestamosid)
-        .AsNoTracking()
-        .SingleOrDefault();
+            .Where(o => o.PrestamosId == prestamosid)
+            .AsNoTracking()
+            .SingleOrDefault();
     }
 
-    public List<Prestamos> GetList()
-    {
+    public List < Prestamos > GetList() {
         return _contexto.Prestamos.ToList();
     }
-          public List<Persona> GetLists()
-    {
+    public List < Persona > GetLists() {
         return _contexto.Persona.ToList();
     }
-      public List<Ocupaciones> GetListss()
-    {
+    public List < Ocupaciones > GetListss() {
         return _contexto.Ocupaciones.ToList();
     }
 

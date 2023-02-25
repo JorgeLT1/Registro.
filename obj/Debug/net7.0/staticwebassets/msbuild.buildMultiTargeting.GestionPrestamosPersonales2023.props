@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GestionPrestamosPersonales2023.props" />
+</Project>

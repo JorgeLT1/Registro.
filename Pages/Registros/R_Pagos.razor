@@ -4,50 +4,69 @@
 @inject PersonaBLL personaBLL
 @inject OcupacionesBLL ocupacion
 
+
 <EditForm Model="pagosBLL">
-<div class="accordion-item">
-    <div class="modal-header">
-        <h1>Registro de Pagos</h1>
+    <div class="accordion-item">
+        <div class="modal-header">
+            <h1>Registro de Pagos</h1>
+        </div>
+        <div class="accordion-body">
+            <label for="libroid">PagosId</label>
+            <div class="input-group">
+                <InputNumber @bind-Value="pagos.PagosId" class="form-control" />
+                <button type="button" class="btn btn-primary" @onclick="Buscar"><span class="oi oi-magnifying-glass"></span></button>
+            </div>
+
+            <br />
+            <br />
+            <label for="fecha">Fecha</label>
+            <InputDate @bind-Value="pagos.Fecha" class="form-control" />
+            @if (pagos.Fecha > DateTime.Today)
+            {
+                <span class="text-danger">La fecha del pago no puede ser en el futuro.</span>
+            }
+            <br />
+            <br />
+
+            <label for="pagos.personaid">Persona ID</label>
+            <select @bind="pagos.PersonaId" class="form-control">
+                @foreach (var item in personaBLL.GetList())
+                {
+                    <option value="@item.PersonaId">@item.PersonaId</option>
+                }
+            </select>
+            <br />
+            <br />
+
+            <label for="concepto">Concepto</label>
+            <InputText @bind-Value="pagos.Concepto" class="form-control" />
+            @if (string.IsNullOrEmpty(pagos.Concepto))
+            {
+                <span class="text-danger">El concepto del pago es obligatorio.</span>
+            }
+            <br />
+            <br />
+
+            <label for="monto">Monto</label>
+            <InputNumber @bind-Value="pagos.Monto" class="form-control" />
+            @if (pagos.Monto <= 0 || pagos.Monto > 500000)
+            {
+                <span class="text-danger">El monto del pago debe estar entre 1 y 500000.</span>
+            }
+            <br />
+            <br />
+        </div>
+        <hr>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" @onclick="Nuevo"> <span class="oi oi-file"></span> Nuevo </button>
+            <button type="button" class="btn btn-success" @onclick="Guardar"><span class="oi oi-document"></span> Guardar</button>
+            <button type="button" class="btn btn-danger" @onclick="Eliminar"><span class="oi oi-delete"></span> Eliminar</button>
+        </div>
     </div>
- <div class="accordion-body">     
-      <label for="Pagos">PagosId</label>
-    <InputNumber @bind-Value="pagos.PagosId" class="form-control" />
-    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
-      <br />
-      <br />
-      <label for="fecha">Fecha</label>
-      <InputDate @bind-Value="pagos.Fecha" class="form-control" />
-      <br />
-      <br />
-    
-      <label for="pagos.personaid">Persona ID</label>
-      <select @bind="pagos.PersonaId" class="form-control">
-        @foreach (var item in personaBLL.GetList())
-        {
-            <option value="@item.PersonaId">@item.PersonaId</option>
-        }
-      </select>
-
-      <label for="concepto">Concepto</label>
-      <InputText @bind-Value="pagos.Concepto" class="form-control" />
-      <br />
-      <br />
-
-      <label for="monto">Monto</label>
-      <InputNumber @bind-Value="pagos.Monto" class="form-control" />
-      <br />
-      <br />
-   </div>
-
-    <div class="accordion-flush">
-        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
-        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
-        <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
-    </div>
-</div>
 </EditForm>
 
 @code {
+
     [Parameter]
     public int PagosId {get; set; }
     public Pagos pagos {get; set; } = new Pagos();
@@ -64,6 +83,12 @@
     {
         if (pagos.PagosId > 0)
         {
+            /*ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Success,
+                        Summary = "Se ha encontrado con exito."
+                    });*/
             var encontrado = pagosBLL.Buscar(pagos.PagosId);
             Nuevo();
             if (encontrado != null)
@@ -82,20 +107,34 @@
         
         if (guardado)
         {
+            /*ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Success,
+                        Summary = "Guardado con exito."
+                    });*/
             Nuevo();
         }
-        else
-        {
-        }
-
     }
 
     public void Eliminar()
     {
         if(pagosBLL.Eliminar(pagos))
         {
+            /*ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Success,
+                        Summary = "Se ha eliminado con exito."
+                    });*/
             Nuevo();
         }
     }
+    /*public void ShowNotification(NotificationMessage message)
+    {
+        notificationService.Notify(message);
+
+    }*/
+
 
 }

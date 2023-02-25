@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Pagos
 {
@@ -13,5 +14,10 @@ public class Pagos
     public string? PersonaId{get;set;}
     public string? Concepto{get;set;}
     public int? Monto{get;set;}
+
+    [ForeignKey("PagosId")]
+
+    public virtual List<PagosDetalle> pagosDetalles {get; set;} = new List<PagosDetalle>();
+
     
 }

@@ -22,17 +22,31 @@ public class PagosBLL {
         return _contexto.SaveChanges() > 0;
     }
 
-    public bool Guardar(Pagos pagos) {
-        if (!Existe(pagos.PagosId))
-            return this.Insertar(pagos);
-        else
-            return this.Modificar(pagos);
-    }
+   public bool Guardar(Pagos pago) {
+   if (pago == null || pago.PagosId <= 0) {
+      return false; // Libro no válido, no se puede guardar
+   }
+   
+   if (!Existe(pago.PagosId)) {
+      return this.Insertar(pago);
+   } else {
+      return this.Modificar(pago);
+   }
+}
 
-    public bool Eliminar(Pagos pagos) {
-        _contexto.Entry(pagos).State = EntityState.Deleted;
+public bool Eliminar(Pagos pago)
+{
+    if (Existe(pago.PagosId))
+    {
+        var pagosEliminar = _contexto.Pagos.Find(pago.PagosId);
+        _contexto.Entry(pagosEliminar).State = EntityState.Deleted;
         return _contexto.SaveChanges() > 0;
     }
+    else
+    {
+        return false; 
+    }
+}
 
     public Pagos ? Buscar(int pagosid) {
         return _contexto.Pagos

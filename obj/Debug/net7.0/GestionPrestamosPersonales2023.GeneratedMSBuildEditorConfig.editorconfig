@@ -28,10 +28,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUGFnb3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_PagosDetalle.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUGFnb3NEZXRhbGxlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Consultas/C_Persona.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUGVyc29uYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,10 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Pagos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUGFnb3MucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_PagosDetalle.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUGFnb3NEZXRhbGxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jorge/Documents/7 trimestre/PROGRAMACION APLICADA I/GestionPrestamosPersonales2023/Pages/Registros/R_Persona.razor]

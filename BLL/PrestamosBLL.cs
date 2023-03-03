@@ -42,14 +42,15 @@ public class PrestamosBLL {
             .SingleOrDefault();
     }
 
-    public List < Prestamos > GetList() {
-        return _contexto.Prestamos.ToList();
+
+        public List<Prestamos> GetList(Expression<Func<Prestamos, bool>> criterio)
+    {
+            return _contexto.Prestamos.AsNoTracking().Where(criterio).ToList();
     }
-    public List < Persona > GetLists() {
-        return _contexto.Persona.ToList();
-    }
-    public List < Ocupaciones > GetListss() {
-        return _contexto.Ocupaciones.ToList();
+
+       public List<Pagos> GetLists(Expression<Func<Pagos, bool>> criterio)
+    {
+            return _contexto.Pagos.AsNoTracking().Where(criterio).ToList();
     }
 
 }

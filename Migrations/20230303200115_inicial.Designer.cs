@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionPrestamosPersonales2023.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230206202543_inicial")]
+    [Migration("20230303200115_inicial")]
     partial class inicial
     {
         /// <inheritdoc />
@@ -50,11 +50,11 @@ namespace GestionPrestamosPersonales2023.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Monto")
-                        .HasColumnType("INTEGER");
+                    b.Property<double?>("Monto")
+                        .HasColumnType("REAL");
 
-                    b.Property<string>("PersonaId")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("PersonaId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("PagosId");
 
@@ -71,6 +71,9 @@ namespace GestionPrestamosPersonales2023.Migrations
                         .IsRequired()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("PagosId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("prestamosid")
                         .HasColumnType("INTEGER");
 
@@ -78,6 +81,8 @@ namespace GestionPrestamosPersonales2023.Migrations
                         .HasColumnType("REAL");
 
                     b.HasKey("id");
+
+                    b.HasIndex("PagosId");
 
                     b.ToTable("PagosDetalle");
                 });
@@ -134,7 +139,7 @@ namespace GestionPrestamosPersonales2023.Migrations
                     b.Property<long?>("monto")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("personaid")
+                    b.Property<int>("personaid")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("vence")
@@ -143,6 +148,18 @@ namespace GestionPrestamosPersonales2023.Migrations
                     b.HasKey("PrestamosId");
 
                     b.ToTable("Prestamos");
+                });
+
+            modelBuilder.Entity("PagosDetalle", b =>
+                {
+                    b.HasOne("Pagos", null)
+                        .WithMany("pagosDetalles")
+                        .HasForeignKey("PagosId");
+                });
+
+            modelBuilder.Entity("Pagos", b =>
+                {
+                    b.Navigation("pagosDetalles");
                 });
 #pragma warning restore 612, 618
         }

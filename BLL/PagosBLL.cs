@@ -47,6 +47,20 @@ public bool Eliminar(Pagos pago)
         return false; 
     }
 }
+public bool AgregarDetalles(Pagos pago) {
+    if (pago.pagosDetalles == null || pago.pagosDetalles.Count == 0) {
+        return false;
+    }
+
+    foreach (PagosDetalle detalle in pago.pagosDetalles) {
+        detalle.PagoId = pago.PagosId;
+        _contexto.PagosDetalle.Add(detalle); // Agregar la entidad al contexto
+    }
+
+    return _contexto.SaveChanges() > 0; // Guardar los cambios en la base de datos
+}
+
+
 
     public Pagos ? Buscar(int pagosid) {
         return _contexto.Pagos
@@ -55,19 +69,11 @@ public bool Eliminar(Pagos pago)
             .SingleOrDefault();
     }
 
-    public List < Persona > GetList() {
-        return _contexto.Persona.ToList();
+
+    public List<Pagos> GetList(Expression<Func<Pagos, bool>> criterio)
+    {
+            return _contexto.Pagos.AsNoTracking().Where(criterio).ToList();
     }
 
-    public List < Ocupaciones > GetLists() {
-        return _contexto.Ocupaciones.ToList();
-    }
 
-    public List < Pagos > GetListst() {
-        return _contexto.Pagos.ToList();
-    }
-
-    public List < Prestamos > PrestamosList() {
-        return _contexto.Prestamos.ToList();
-    }
 }

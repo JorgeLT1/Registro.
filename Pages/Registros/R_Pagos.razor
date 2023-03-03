@@ -3,6 +3,8 @@
 @inject PagosBLL pagosBLL
 @inject PersonaBLL personaBLL
 @inject OcupacionesBLL ocupacion
+@inject PrestamosBLL prestamosBLL
+@inject NotificationService notificationService
 
 
 <EditForm Model="pagosBLL">
@@ -55,14 +57,76 @@
             }
             <br />
             <br />
+            <div class="card">
+            <div class="card-header">
+                <h1> Detalle de pago </h1>
+            </div>
+
+            <div class="form-group">
+                <label>ValorPagado: </label><br>
+                <InputNumber @bind-Value="detalle.valorPagado" class="form-control" />
+                <ValidationMessage For="@(() => detalle.valorPagado)" />
+            </div>
+
+            <div class="form-group">
+                <label>PrestamoId: </label><br>
+                <InputSelect class="form-select" @bind-Value="detalle.prestamosid">
+                    @foreach (var prestamo in prestamosBLL.GetList(o => o.personaid == pagos.PersonaId))
+                    {
+                        <option value="@prestamo.PrestamosId">@prestamo.concepto</option>
+                    }
+                </InputSelect>
+            </div>
+
+                <div class="col-4">
+                    <label for="txtValorPagado" class="form-label"> Valor Pagado:</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="number"  id="txtValorPagado" class="form-control" @bind-value="detalle.valorPagado">
+                    <ValidationMessage For="@(() => detalle.valorPagado)" />
+                    <button type="button"class="btn btn-success" @onclick="AgregarDetalle" ><span class="oi oi-plus"></span></button>
+                </div>
         </div>
+                <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>PrestamoID</th>
+                    <th>Valor Pagado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>               
+                    @if(pagos.pagosDetalles!=null){
+                        @foreach (var detalle in pagos.pagosDetalles)
+                        {
+                            <tr>
+                                <td>@detalle.id</td>
+                                <td>@detalle.prestamosid</td>
+                                <td>@detalle.valorPagado</td>
+                                <td> 
+                            </td>
+                            
+                            </tr>
+                         }
+
+                    }
+                            
+            </tbody>
+        </table>
         <hr>
         <div class="text-center">
             <button type="button" class="btn btn-primary" @onclick="Nuevo"> <span class="oi oi-file"></span> Nuevo </button>
             <button type="button" class="btn btn-success" @onclick="Guardar"><span class="oi oi-document"></span> Guardar</button>
             <button type="button" class="btn btn-danger" @onclick="Eliminar"><span class="oi oi-delete"></span> Eliminar</button>
         </div>
+
+
+
     </div>
+ </div>
+
 </EditForm>
 
 @code {
@@ -70,7 +134,8 @@
     [Parameter]
     public int PagosId {get; set; }
     public Pagos pagos {get; set; } = new Pagos();
-
+    public PagosDetalle detalle {get; set;} = new PagosDetalle();
+          
     protected override void OnInitialized()
     {
         if(PagosId > 0)
@@ -83,12 +148,12 @@
     {
         if (pagos.PagosId > 0)
         {
-            /*ShowNotification(
+            ShowNotification(
                 new NotificationMessage
                     {
                         Severity = NotificationSeverity.Success,
                         Summary = "Se ha encontrado con exito."
-                    });*/
+                    });
             var encontrado = pagosBLL.Buscar(pagos.PagosId);
             Nuevo();
             if (encontrado != null)
@@ -107,12 +172,12 @@
         
         if (guardado)
         {
-            /*ShowNotification(
+            ShowNotification(
                 new NotificationMessage
                     {
                         Severity = NotificationSeverity.Success,
                         Summary = "Guardado con exito."
-                    });*/
+                    });
             Nuevo();
         }
     }
@@ -121,20 +186,34 @@
     {
         if(pagosBLL.Eliminar(pagos))
         {
-            /*ShowNotification(
+            ShowNotification(
                 new NotificationMessage
                     {
                         Severity = NotificationSeverity.Success,
                         Summary = "Se ha eliminado con exito."
-                    });*/
+                    });
             Nuevo();
         }
     }
-    /*public void ShowNotification(NotificationMessage message)
+    void AgregarDetalle()
+    {
+            pagos.pagosDetalles.Add(detalle);
+            detalle = new PagosDetalle();
+
+            ShowNotification(
+            new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Success,
+                    Summary = "Guardado Correctamente"
+                });  
+    }
+
+     
+    public void ShowNotification(NotificationMessage message)
     {
         notificationService.Notify(message);
-
-    }*/
+    }
 
 
 }
+

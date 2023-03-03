@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in pagosBLL.GetListst())
+                @foreach (var item in pagosBLL.GetList(o=> true))
                 {
                     <tr>
                         <td>@item.PagosId</td>

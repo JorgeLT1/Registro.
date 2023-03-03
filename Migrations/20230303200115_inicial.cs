@@ -32,28 +32,13 @@ namespace GestionPrestamosPersonales2023.Migrations
                     PagosId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    PersonaId = table.Column<string>(type: "TEXT", nullable: true),
+                    PersonaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Concepto = table.Column<string>(type: "TEXT", nullable: true),
-                    Monto = table.Column<int>(type: "INTEGER", nullable: true)
+                    Monto = table.Column<double>(type: "REAL", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pagos", x => x.PagosId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PagosDetalle",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    PagoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    prestamosid = table.Column<int>(type: "INTEGER", nullable: true),
-                    valorPagado = table.Column<double>(type: "REAL", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PagosDetalle", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -85,13 +70,39 @@ namespace GestionPrestamosPersonales2023.Migrations
                     vence = table.Column<DateTime>(type: "TEXT", nullable: true),
                     concepto = table.Column<string>(type: "TEXT", nullable: true),
                     monto = table.Column<long>(type: "INTEGER", nullable: true),
-                    personaid = table.Column<int>(type: "INTEGER", nullable: true),
+                    personaid = table.Column<int>(type: "INTEGER", nullable: false),
                     balance = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prestamos", x => x.PrestamosId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "PagosDetalle",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PagoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    prestamosid = table.Column<int>(type: "INTEGER", nullable: true),
+                    valorPagado = table.Column<double>(type: "REAL", nullable: true),
+                    PagosId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PagosDetalle", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_PagosDetalle_Pagos_PagosId",
+                        column: x => x.PagosId,
+                        principalTable: "Pagos",
+                        principalColumn: "PagosId");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PagosDetalle_PagosId",
+                table: "PagosDetalle",
+                column: "PagosId");
         }
 
         /// <inheritdoc />
@@ -101,9 +112,6 @@ namespace GestionPrestamosPersonales2023.Migrations
                 name: "Ocupaciones");
 
             migrationBuilder.DropTable(
-                name: "Pagos");
-
-            migrationBuilder.DropTable(
                 name: "PagosDetalle");
 
             migrationBuilder.DropTable(
@@ -111,6 +119,9 @@ namespace GestionPrestamosPersonales2023.Migrations
 
             migrationBuilder.DropTable(
                 name: "Prestamos");
+
+            migrationBuilder.DropTable(
+                name: "Pagos");
         }
     }
 }

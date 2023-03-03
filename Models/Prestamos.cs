@@ -12,6 +12,6 @@ public class Prestamos
     public DateTime? vence{get; set;}
     public string? concepto{get;set;}
     public long? monto{get;set;}
-    public int? personaid{get;set;}
+    public int personaid{get;set;}
     public int? balance {get; set;}
 }

@@ -62,11 +62,6 @@
                 <h1> Detalle de pago </h1>
             </div>
 
-            <div class="form-group">
-                <label>ValorPagado: </label><br>
-                <InputNumber @bind-Value="detalle.valorPagado" class="form-control" />
-                <ValidationMessage For="@(() => detalle.valorPagado)" />
-            </div>
 
             <div class="form-group">
                 <label>PrestamoId: </label><br>
@@ -180,6 +175,16 @@
                     });
             Nuevo();
         }
+        else
+        {
+            ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Error,
+                        Summary = "ERROR!!. Favor revisar los campos."
+                    });
+            Nuevo();
+        }
     }
 
     public void Eliminar()
@@ -191,6 +196,16 @@
                     {
                         Severity = NotificationSeverity.Success,
                         Summary = "Se ha eliminado con exito."
+                    });
+            Nuevo();
+        }
+        else
+        {
+            ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Error,
+                        Summary = "ERROR!!. Favor revisar los campos."
                     });
             Nuevo();
         }

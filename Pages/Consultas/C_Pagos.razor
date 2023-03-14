@@ -8,6 +8,25 @@
         </div>
         </div>
 
+    <div  class="row">
+        <select class="form-control" @bind="Filtro">
+            <option value="1">PagosId</option>
+            <option value="2">Fecha</option>
+            <option value="3">PersonaId</option>
+            <option value="4">Concepto</option>
+            <option value="5">Monto</option>
+        </select>
+    </div>
+
+        <label class="form-control">Criterio</label>
+        <input type="text" class="form-control" @bind="Criterio">
+
+        <div>
+        <button type="button" @onclick="Buscar">
+            <i>Buscar</i>
+        </button>
+        </div>
+
         <table class="table table-secondary">
             <thead class="thead-dark">
                 <tr class="table-info">
@@ -34,6 +53,21 @@
         </table>
 </EditForm>
 
+@code
+{
 
+    public string Filtro { get; set; } = "";
+    public string Criterio { get; set; } = "";
 
+    public List<Pagos> lista { get; set; } = new List<Pagos>();
 
+    protected override void OnInitialized()
+    {
+        Buscar();
+    }
+    public void Buscar()
+    {
+        lista = pagosBLL.GetList(o => true);
+    }
+
+}

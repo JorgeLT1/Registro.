@@ -37,19 +37,10 @@ public class PagosBLL {
 }
 
 public bool Eliminar(Pagos pago)
-{   
-    EliminarDetalle(pago);
-    if (Existe(pago.PagosId))
     {
-        var pagosEliminar = _contexto.Pagos.Find(pago.PagosId);
-        _contexto.Entry(pagosEliminar).State = EntityState.Deleted;
+        _contexto.Entry(pago).State = EntityState.Deleted;
         return _contexto.SaveChanges() > 0;
     }
-    else
-    {
-        return false; 
-    }
-}
 public bool AgregarDetalles(Pagos pago) {
     if (pago.pagosDetalles == null || pago.pagosDetalles.Count == 0) {
         return false;

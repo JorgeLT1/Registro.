@@ -188,29 +188,35 @@
             Nuevo();
         }
     }
-
-    public void Eliminar()
+public void Eliminar()
     {
-        if(pagosBLL.Eliminar(pagos))
+        bool eliminado;
+
+        if(pagos.PersonaId <= 0 && pagos.Concepto == null && pagos.Monto <= 0){
+            ShowNotification(
+            new NotificationMessage
+            {
+                Severity = NotificationSeverity.Error,
+                Summary = "No hay nada para eliminar"
+            });
+
+            return;
+        }
+
+        eliminado = pagosBLL.Eliminar(pagos);
+
+        if (eliminado)
         {
             ShowNotification(
-                new NotificationMessage
-                    {
-                        Severity = NotificationSeverity.Success,
-                        Summary = "Se ha eliminado con exito."
-                    });
+            new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Warning,
+                    Summary = "Eliminado Correctamente"
+                });
+
             Nuevo();
         }
-        else
-        {
-            ShowNotification(
-                new NotificationMessage
-                    {
-                        Severity = NotificationSeverity.Error,
-                        Summary = "ERROR!!. Favor revisar los campos."
-                    });
-            Nuevo();
-        }
+
     }
 
 public void AgregarDetalle()

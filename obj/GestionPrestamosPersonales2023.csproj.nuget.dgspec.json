@@ -1,32 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj": {}
+    "C:\\Users\\Jorge Toribio\\Documents\\Archivos\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj": {
+    "C:\\Users\\Jorge Toribio\\Documents\\Archivos\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge Toribio\\Documents\\Archivos\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj",
         "projectName": "GestionPrestamosPersonales2023",
-        "projectPath": "C:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj",
-        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jorge\\Documents\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\obj\\",
+        "projectPath": "C:\\Users\\Jorge Toribio\\Documents\\Archivos\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\GestionPrestamosPersonales2023.csproj",
+        "packagesPath": "C:\\Users\\Jorge Toribio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge Toribio\\Documents\\Archivos\\7 trimestre\\PROGRAMACION APLICADA I\\GestionPrestamosPersonales2023\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jorge Toribio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -37,18 +41,22 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.4, )"
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.7.11, )"
             }
           },
           "imports": [
@@ -70,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

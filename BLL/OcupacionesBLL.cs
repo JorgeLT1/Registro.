@@ -22,18 +22,31 @@ public class OcupacionesBLL {
       return _contexto.SaveChanges() > 0;
    }
 
-   public bool Guardar(Ocupaciones ocupacion) {
-      if (!Existe(ocupacion.OcupacionId))
-         return this.Insertar(ocupacion);
-      else
-         return this.Modificar(ocupacion);
-
+public bool Guardar(Ocupaciones ocupacion) {
+   if (ocupacion == null || ocupacion.OcupacionId <= 0) {
+      return false; // Libro no válido, no se puede guardar
    }
 
-   public bool Eliminar(Ocupaciones ocupacion) {
-      _contexto.Entry(ocupacion).State = EntityState.Deleted;
-      return _contexto.SaveChanges() > 0;
+   if (!Existe(ocupacion.OcupacionId)) {
+      return this.Insertar(ocupacion);
+   } else {
+      return this.Modificar(ocupacion);
    }
+}
+
+public bool Eliminar(Ocupaciones ocupacion)
+{
+    if (Existe(ocupacion.OcupacionId))
+    {
+        var ocupacioneEliminar = _contexto.Ocupaciones.Find(ocupacion.OcupacionId);
+        _contexto.Entry(ocupacioneEliminar).State = EntityState.Deleted;
+        return _contexto.SaveChanges() > 0;
+    }
+    else
+    {
+        return false; 
+    }
+}
 
    public Ocupaciones ? Buscar(int ocupacionId) {
       return _contexto.Ocupaciones

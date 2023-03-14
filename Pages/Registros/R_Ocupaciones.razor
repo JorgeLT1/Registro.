@@ -1,16 +1,21 @@
 @page "/ocupacion"
 @page "/ocupacion/{OcupacionId:int}"
 @inject OcupacionesBLL ocupacionesBLL
+@inject NotificationService notificationService
+
 
 <EditForm Model="ocupacion">
 <div class="accordion-item">
     <div class="modal-header">
         <h1>Registro de Ocupaciones</h1>
     </div>
- <div class="accordion-body">     
-      <label for="ocupac">OcupaciobId</label>
-    <InputNumber @bind-Value="ocupacion.OcupacionId" class="form-control" />
-    <button type="button" class="btn btn-primary"  @onclick="Buscar" > Buscar </button>
+    <div class="accordion-body">     
+    <label for="ocupac">OcupaciobId</label>
+    <div class="input-group">
+        <InputNumber @bind-Value="ocupacion.OcupacionId" class="form-control" />
+        <button type="button" class="btn btn-primary" @onclick="Buscar"><span class="oi oi-magnifying-glass"></span></button>
+    </div>
+    
       <br />
       <br />
       <label for="descr">Descripcion</label>
@@ -25,9 +30,9 @@
    </div>
 
     <div class="accordion-flush">
-        <button type="button" class="btn btn-primary"  @onclick="Nuevo" > Nuevo </button>
-        <button type="button" class="btn btn-success" @onclick="Guardar" > Guardar</button>
-        <button type="button" class="btn btn-danger" @onclick="Eliminar"> Eliminar</button>
+        <button type="button" class="btn btn-primary" @onclick="Nuevo"> <span class="oi oi-file"></span> Nuevo </button>
+        <button type="button" class="btn btn-success" @onclick="Guardar"><span class="oi oi-document"></span> Guardar</button>
+        <button type="button" class="btn btn-danger" @onclick="Eliminar"><span class="oi oi-delete"></span> Eliminar</button>
     </div>
 </div>
 </EditForm>
@@ -50,6 +55,13 @@
     {
         if (ocupacion.OcupacionId > 0)
         {
+            ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Success,
+                        Summary = "Se ha encontrado con exito."
+                    });
+
             var encontrado = ocupacionesBLL.Buscar(ocupacion.OcupacionId);
             Nuevo();
             if (encontrado != null)
@@ -62,36 +74,60 @@
         this.ocupacion = new Ocupaciones();
     }
 
-    /*public bool validar()
-    {
-        if(ocupacion.Descripcion)
-        
-        
-        
-    }*/
-
-
     public void Guardar()
     {
         var guardado = ocupacionesBLL.Guardar(ocupacion);
 
         if (guardado)
         {
+            ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Success,
+                        Summary = "Guardado con exito."
+                    });
             Nuevo();
         }
         else
         {
+            ShowNotification(
+                new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Error,
+                        Summary = "ERROR!!. Favor revisar los campos."
+                    });
+            Nuevo(); 
         }
 
     }
-
-
     public void Eliminar()
     {
         if(ocupacionesBLL.Eliminar(ocupacion))
         {
+        ShowNotification(
+            new NotificationMessage
+            {
+                Severity = NotificationSeverity.Success,
+                Summary = "No hay nada para eliminar"
+            });
+
             Nuevo();
         }
+        else
+        {
+        ShowNotification(
+            new NotificationMessage
+            {
+                Severity = NotificationSeverity.Error,
+                Summary = "Error"
+            });
+        }
     }
+
+    public void ShowNotification(NotificationMessage message)
+    {
+        notificationService.Notify(message);
+    }
+
 
 }

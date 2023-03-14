@@ -13,5 +13,5 @@ public class Prestamos
     public string? concepto{get;set;}
     public long? monto{get;set;}
     public int personaid{get;set;}
-    public int? balance {get; set;}
+    public double balance {get; set;}
 }

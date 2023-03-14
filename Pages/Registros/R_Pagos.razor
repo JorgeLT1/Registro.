@@ -12,6 +12,8 @@
         <div class="modal-header">
             <h1>Registro de Pagos</h1>
         </div>
+
+        @*Pagos ID*@
         <div class="accordion-body">
             <label for="libroid">PagosId</label>
             <div class="input-group">
@@ -21,6 +23,8 @@
 
             <br />
             <br />
+
+            @*Fecha*@
             <label for="fecha">Fecha</label>
             <InputDate @bind-Value="pagos.Fecha" class="form-control" />
             @if (pagos.Fecha > DateTime.Today)
@@ -30,6 +34,7 @@
             <br />
             <br />
 
+            @*Persona ID*@
             <label for="pagos.personaid">Persona ID</label>
             <select @bind="pagos.PersonaId" class="form-control">
                 @foreach (var item in personaBLL.GetList())
@@ -40,6 +45,7 @@
             <br />
             <br />
 
+            @*Concepto*@
             <label for="concepto">Concepto</label>
             <InputText @bind-Value="pagos.Concepto" class="form-control" />
             @if (string.IsNullOrEmpty(pagos.Concepto))
@@ -49,6 +55,7 @@
             <br />
             <br />
 
+            @*Monto*@
             <label for="monto">Monto</label>
             <InputNumber @bind-Value="pagos.Monto" class="form-control" />
             @if (pagos.Monto <= 0 || pagos.Monto > 500000)
@@ -62,7 +69,7 @@
                 <h1> Detalle de pago </h1>
             </div>
 
-
+            @*Inicio del detalle*@
             <div class="form-group">
                 <label>PrestamoId: </label><br>
                 <InputSelect class="form-select" @bind-Value="detalle.prestamosid">
@@ -79,14 +86,12 @@
 
                 <div class="input-group">
                     <input type="number"  id="txtValorPagado" class="form-control" @bind-value="detalle.valorPagado">
-                    <ValidationMessage For="@(() => detalle.valorPagado)" />
                     <button type="button"class="btn btn-success" @onclick="AgregarDetalle" ><span class="oi oi-plus"></span></button>
                 </div>
         </div>
                 <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>PrestamoID</th>
                     <th>Valor Pagado</th>
                     <th></th>
@@ -97,13 +102,9 @@
                         @foreach (var detalle in pagos.pagosDetalles)
                         {
                             <tr>
-                                <td>@detalle.id</td>
                                 <td>@detalle.prestamosid</td>
-                                <td>@detalle.valorPagado</td>
-                                <td> 
-                            </td>
-                            
-                            </tr>
+                                <td>@detalle.valorPagado</td> 
+                             </tr>
                          }
 
                     }
@@ -129,6 +130,7 @@
     [Parameter]
     public int PagosId {get; set; }
     public Pagos pagos {get; set; } = new Pagos();
+    public Prestamos prestamo = new Prestamos();
     public PagosDetalle detalle {get; set;} = new PagosDetalle();
           
     protected override void OnInitialized()
@@ -210,20 +212,30 @@
             Nuevo();
         }
     }
-    void AgregarDetalle()
-    {
-            pagos.pagosDetalles.Add(detalle);
-            detalle = new PagosDetalle();
 
-            ShowNotification(
-            new NotificationMessage
-                {
-                    Severity = NotificationSeverity.Success,
-                    Summary = "Guardado Correctamente"
-                });  
+public void AgregarDetalle()
+{
+    if (detalle?.prestamosid == null || detalle.valorPagado <= 0)
+    {
+        ShowNotification(new NotificationMessage
+        {
+            Severity = NotificationSeverity.Info,
+            Summary = "ERROR, Favor revisar los campos"
+        });
+        return;
     }
 
-     
+    this.pagos.pagosDetalles.Add(this.detalle);
+    this.detalle = new PagosDetalle();
+    pagos.Monto = pagos.pagosDetalles.Sum(d => d.valorPagado);
+
+    ShowNotification(new NotificationMessage
+    {
+        Severity = NotificationSeverity.Info,
+        Summary = "Se ha añadido con exito."
+    });
+}
+
     public void ShowNotification(NotificationMessage message)
     {
         notificationService.Notify(message);
@@ -231,4 +243,3 @@
 
 
 }
-
